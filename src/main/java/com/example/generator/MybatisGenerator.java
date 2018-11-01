@@ -355,8 +355,8 @@ public class MybatisGenerator implements CommentGenerator {
             method.addJavaDocLine(sb.toString());
         }
 
-        String returnType = method.getReturnType().toString();
-        returnType = returnType.lastIndexOf(".") != -1 ? returnType.substring(returnType.lastIndexOf(".") + 1) : returnType;
+        String returnType = method.getReturnType()==null?null:method.getReturnType().toString();
+        returnType = returnType==null?null:returnType.lastIndexOf(".") != -1 ? returnType.substring(returnType.lastIndexOf(".") + 1) : returnType;
         method.addJavaDocLine(" * @return " + returnType);
 
         method.addJavaDocLine(" */");

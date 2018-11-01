@@ -41,8 +41,10 @@ public class createTableText {
             ResultSet rs = meta.getTables(null, null, null,
                     new String[] { "TABLE" });
             while (rs.next()) {
-                System.out.println("<table schema=\"%\" tableName=\"" + rs.getString(3) + "\" enableCountByExample=\"false\" enableDeleteByExample=\"false\"\n" +
-                        "               enableSelectByExample=\"false\" enableUpdateByExample=\"false\"/>");
+                System.out.println("<table schema=\"%\" tableName=\"" + rs.getString(3) + "\" enableCountByExample=\"false\" enableDeleteByExample=\"false\"" +
+                        " enableSelectByExample=\"false\" enableUpdateByExample=\"false\">\n" +
+                        "   <property name=\"useActualColumnNames\" value=\"true\"/>\n" +
+                        "</table>");
             }
             con.close();
         } catch (Exception e) {

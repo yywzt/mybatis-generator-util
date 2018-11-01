@@ -7,6 +7,9 @@
     <!--<classPathEntry location="E:\Development\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>-->
 
     <context id="context" targetRuntime="MyBatis3">
+        <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
+        一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖-->
+        <property name="autoDelimitKeywords" value="true"/>
         <property name="javaFileEncoding" value="UTF-8" />
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
@@ -55,61 +58,89 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table schema="%" tableName="act_evt_log" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ge_bytearray" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ge_property" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_actinst" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_attachment" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_comment" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_detail" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_identitylink" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_procinst" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_taskinst" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_hi_varinst" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_id_group" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_id_info" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_id_membership" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_id_user" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_procdef_info" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_re_deployment" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_re_model" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_re_procdef" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_deadletter_job" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_event_subscr" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_execution" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_identitylink" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_job" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_suspended_job" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_task" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_timer_job" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table schema="%" tableName="act_ru_variable" enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table schema="%" tableName="act_evt_log" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ge_bytearray" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ge_property" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_actinst" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_attachment" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_comment" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_detail" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_identitylink" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_procinst" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_taskinst" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_hi_varinst" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_id_group" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_id_info" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_id_membership" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_id_user" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_procdef_info" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_re_deployment" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_re_model" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_re_procdef" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_deadletter_job" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_event_subscr" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_execution" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_identitylink" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_job" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_suspended_job" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_task" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_timer_job" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="%" tableName="act_ru_variable" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
     </context>
 </generatorConfiguration>
