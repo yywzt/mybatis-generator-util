@@ -1,0 +1,12 @@
+安装jar到本地仓库
+
+mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version> -Dpackaging=<packaging>
+1
+2
+<path-to-file>: 要安装的JAR的本地路径
+<group-id>：要安装的JAR的Group Id
+<artifact-id>: 要安装的JAR的 Artificial Id
+<version>: JAR 版本
+<packaging>: 打包类型，例如JAR
+
+NOTE:最好在pom.xml文件所在的目录运行上述命令，个人经验不在根目录运行有时会安装不成功
