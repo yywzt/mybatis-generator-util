@@ -1,2 +1,3 @@
 # mybatis-generator-util
-生成model、mapper、xml文件的工具
+mybatis代码自动生成工具
+生成model、mapper、xml文件
